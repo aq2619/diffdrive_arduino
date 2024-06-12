@@ -102,11 +102,15 @@ std::vector<hardware_interface::StateInterface> DiffDriveArduinoHardware::export
   std::vector<hardware_interface::StateInterface> state_interfaces;
 
   state_interfaces.emplace_back(hardware_interface::StateInterface(
+    wheel_l_.name, hardware_interface::HW_IF_POSITION, &wheel_l_.pos));
+  state_interfaces.emplace_back(hardware_interface::StateInterface(
     wheel_l_.name, hardware_interface::HW_IF_VELOCITY, &wheel_l_.vel));
 
   state_interfaces.emplace_back(hardware_interface::StateInterface(
+    wheel_r_.name, hardware_interface::HW_IF_POSITION, &wheel_r_.pos));
+  state_interfaces.emplace_back(hardware_interface::StateInterface(
     wheel_r_.name, hardware_interface::HW_IF_VELOCITY, &wheel_r_.vel));
-
+    
   return state_interfaces;
 }
 
